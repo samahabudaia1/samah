@@ -6,4 +6,4 @@ if Rails.env.production?
 else
 	$redis = Redis.new
 	# $redis = Redis.new(:host => 'localhost', :port => 6379)
-end
+end  
