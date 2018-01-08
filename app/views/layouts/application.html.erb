@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+   <head>
+   <title>Bike shop</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+   <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet"> 
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<%= csrf_meta_tags %>
+</head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse"
+          data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button> 
+           <a class="navbar-brand">
+            <div><%= image_tag("logo.png", class: "img-responsive logo") %></div>
+            </a> 
+        </div> 
+        
+        <div class="navbar-collapse collapse">
+         <ul class="nav navbar-nav navbar-left">
+            <li><a href="/pages/landing_page">Home</a></li>
+              <li><a href="/products">Products</a></li>
+                    <li><a href="/pages/about">About</a></li>
+                   <li><a href="/pages/contact">Contact</a></li>
+                   <li><a href="/users">Users</a></li>
+                   <li><a href="/orders">orders</a></li>
+
+                    <li>
+            <% if user_signed_in? %>
+            <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+             <% else %>
+              <%= link_to('Login', new_user_session_path) %>
+            <% end %>
+          </li>
+          </ul>
+           <form class="navbar-form navbar-right">
+           <%= form_tag("/products", method: "get", class:"navbar-form navbar-right") do %> 
+          <div class="form-group">
+            <%= label_tag(:q, "Search for:", class:"hidden") %>
+            <%= text_field_tag(:q, "", type:"text", class:"form-control", placeholder:"Search") %>
+          </div>
+        <%= submit_tag("Search", class:"search") %>
+         <% end %>
+      
+        </div><!-- / navbar-collapse -->
+      </div><!-- / container-fluid -->
+    </nav><!-- / navbar -->
+
+<div class="container">
+<div class="row"> 
+  <%= yield %>
+</div>
+</div>
+    <footer  style="margin-top: 50px">
+      <div>
+ <%= image_tag('logo.png', size:"100x60") %><br/>
+        <p style="padding-top: 20px"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et d <br/>olore magna aliqua Ut enim ad minim veniam, quis nostrud.<br/></p>
+        <p>
+          &copy; 2017 Bike Berlin
+        </p>
+      </div>
+  </footer>
+ 
+  </body>
+</html>

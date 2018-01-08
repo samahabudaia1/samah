@@ -1,0 +1,56 @@
+<section class="container">
+  <div class="thank"> 
+    <p id="notice"><%= notice %></p>
+    <p id="alert"><%= alert %></p>
+    <div class="row">
+    <div class="col-sm-9 col-md-9">
+      <%= image_tag(@product.image_url, width: "350", class: "img-zoom") %>
+    </p>
+    </div>
+    <div class="col-sm-3 col-md-3">
+    <p>
+      <% cache @product do %>
+  
+      <strong>Name:</strong>
+      <%= @product.name %>
+    </p>
+    
+    <p>
+     <strong>Description:</strong>
+      <%= @product.description %>
+    </p>
+     <p>
+  
+      <strong>Price:</strong>
+      <%= @product.price_in_cents.to_f %>$
+    </p>
+    
+    
+    <p>
+      <strong>Colour:</strong>
+      <%= @product.colour %>
+    </p>
+   
+    <% end %>
+ <%= button_to 'Order Now', orders_path(product_id: @product.id, total: @product.cost_in_cents), class: "btn btn-lg btn-fill btn-info" %>
+       <p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div> 
+    </p>
+    
+    </div>
+    </div>
+      <%= form_with(url: '/payments/create') do |form| %>
+          <%= hidden_field_tag(:product_id, @product.id) %>
+          <%= render partial: "shared/stripe_checkout_button" %>
+      <% end %>
+    <hr>
+    <%= render partial: "new_comment" %>
+
+    <%= render partial: "comments" %>
+    <br>
+ <div class="text-center"><%= will_paginate @comments %></div>
+    <%= link_to 'Edit', edit_product_path(@product) , class: "btn btn-default" %>
+    <%= link_to 'Back', products_path, class: "btn btn-default" %>
+  </div>   
+ 
+
+</section>
