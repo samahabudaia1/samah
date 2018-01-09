@@ -19,6 +19,6 @@ resources :users
   root 'pages#landing_page'
 
  
-  
+  mount ActionCable.server => '/cable'
 end
 
