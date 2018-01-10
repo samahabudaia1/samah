@@ -5,6 +5,7 @@ class Product < ApplicationRecord
 validates :colour, presence: true
 validates :image_url, presence: true
   has_many :comments
+  has_many :orders
   def self.search(search_term)
     if Rails.env.production?
       Product.where("name ilike ?", "%#{search_term}%")
@@ -24,6 +25,15 @@ validates :image_url, presence: true
   def average_rating
     comments.average(:rating).to_f
   end
+
+
+  def views
+    $redis.get("product:#{id}")
+  end
+
+  def viewed!
+    $redis.incr("product:#{id}")
+end
 
 
 end

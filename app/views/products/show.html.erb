@@ -7,9 +7,10 @@
      <div class = "row" data-product-id="<%= @product.id %>">
     <div class="row">
     <div class="col-sm-9 col-md-9">
-      <%= image_tag(@product.image_url, width: "350", class: "img-zoom") %>
+      <%= image_tag(@product.image_url, width: "350", class: "img-zoom") %> 
     </p>
     </div>
+
     <div class="col-sm-3 col-md-3">
     <p>
       <% cache @product do %>
@@ -33,6 +34,13 @@
       <strong>Colour:</strong>
       <%= @product.colour %>
     </p>
+
+    <h6>  
+  Views:
+  <span class="badge">
+    <%= @product.views %>
+  </span>
+</h6> 
    
     <% end %>
  <%= button_to 'Order Now', orders_path(product_id: @product.id, total: @product.price_in_cents), class: "btn btn-lg btn-fill btn-info" %>
