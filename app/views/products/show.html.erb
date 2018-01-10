@@ -1,7 +1,10 @@
-<section class="container">
+<div class="c-wrapper">
+
+      <section class="container">
   <div class="thank"> 
     <p id="notice"><%= notice %></p>
     <p id="alert"><%= alert %></p>
+     <div class = "row" data-product-id="<%= @product.id %>">
     <div class="row">
     <div class="col-sm-9 col-md-9">
       <%= image_tag(@product.image_url, width: "350", class: "img-zoom") %>
