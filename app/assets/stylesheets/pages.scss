@@ -3,3 +3,42 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*contact*/
+*
+.thanks{
+   padding-top:50px;
+}
+.form-control{
+    width:50%;
+    margin-left:200px;
+}
+
+.contact{
+ text-align:center;
+ color:#b3c5f5;
+}
+.thank{
+   padding:120px;
+}
+.thank_you {
+  color: green;
+  margin-top: 20px;
+  min-height: 350px;
+}
+.user-style {
+  padding:40px;
+  width: 500px;
+}
+.user-style i {
+ color: #3097ff;
+}
+.user-style .field input{
+  width: 100%;
+}
+.user-login {
+  color: #71d2d6;
+  margin-top: 0px;
+}
+.alert-info{
+  color: #000;
+  margin-top: 60px;
+}
