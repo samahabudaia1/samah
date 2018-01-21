@@ -8,7 +8,6 @@ resources :orders, only: [:index, :show, :create, :destroy]
   resources :comments
 end
 resources :users
-  post '/pages/thank_you'
     post '/orders/show'
 
  get '/products/:id', to: 'products#show'
@@ -17,7 +16,7 @@ resources :users
   get 'pages/contact'
   get 'pages/landing_page'
   root 'pages#landing_page'
-
+ post 'pages/thank_you'
  
   mount ActionCable.server => '/cable'
 end
