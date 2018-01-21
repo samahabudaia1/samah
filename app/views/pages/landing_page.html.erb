@@ -23,7 +23,7 @@
         </ol>
 
         <!-- Wrapper for slides -->
-        <div class="carousel-inner thanks" role="listbox">
+        <div class="carousel-inner" role="listbox">
             <% @products.each do |product| %>
             <div class="item<%= " active" if product == @products.first %>">
                 <%= link_to image_tag(product.image_url), product %>
