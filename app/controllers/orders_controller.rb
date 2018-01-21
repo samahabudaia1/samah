@@ -14,7 +14,6 @@ class OrdersController < ApplicationController
   def create;
     @product = Product.find(params[:product_id])
     @order = @product.orders.build(product: @product)
-    @order.user = current_user
     @order.total = @product.price_in_cents
     if @order.save
       redirect_to order_path(@order)

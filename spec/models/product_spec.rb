@@ -2,7 +2,7 @@ require 'rails_helper'
 describe Product do
 
   before do
-    @product = Product.create(name: "bike race", description: "faster", colour: "blue", price: 44)
+    @product = Product.create(name: "bike race", description: "faster", colour: "blue", price_in_cents: 44,image_url:'1.jpg')
     @user = User.create(first_name: "samah", last_name: "samah", email: "soso@hotmail.com", password: "test123")
     @product.comments.create(rating: 1, user: @user, body: "nice!")
     @product.comments.create(rating: 3, user: @user, body: "This is a good!")

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe UsersController do
 before do
-    @user = FactoryGirl.create(:user)
+    @user = FactoryGirl.create(:user,admin:true)
   end
 
   describe 'GET #show' do

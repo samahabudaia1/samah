@@ -25,12 +25,11 @@ width:100%;
 }
 
 
-.logo{
-    margin-bottom: 20px;
+.bike{
+	color: white;
+	font-size: 30px;
+	font-weight: bold;
 }
-.navbar-nav {
-    margin-top: 10px;
-}
-.padding{
-	padding-top: 170px;
+.thanks{
+	padding-top: 70px;
 }
